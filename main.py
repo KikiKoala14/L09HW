@@ -1,3 +1,4 @@
+import random
 from math import sin, cos
 from matplotlib import pyplot as plt
 
@@ -53,9 +54,29 @@ class Cannonball:
             plt.pause(.01)
             self.move(0.1, user_grav)
 
+## Represent a Crazyball, a type of Cannonball
+#
+class Crazyball(Cannonball):
+    def __init__(self, x):
+        super().__init__(x)
+        self.rand_q = None
 
+    def move(self, sec, grav=9.81):
+        dx = self._vx * sec
+        dy = self._vy * sec
 
-# Press the green button in the gutter to run the script.
+        self._vy = self._vy - grav * sec
+
+        self._x = self._x + dx
+        self._y = self._y + dy
+
+        # Some random conditions
+        if self.getX() < 400:
+            self.rand_q = random.randrange(0, 10)
+        if self.getX() < 600:
+            self.rand_q = random.randrange(0, 10)
+
+    # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
     ##
     #  Demonstrate the cannonball class.

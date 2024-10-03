@@ -93,6 +93,7 @@ if __name__ == '__main__':
     v = float(input("Enter initial velocity:"))
 
     ## Prompt user for which trajectory
+    print("1 - Earth Gravity\n2 - Moon Gravity\n3 - Crazyball\n4 - Quit\n")
     choice = int(input("Enter a number from 1 to 4: "))
     if choice == 1:
         c = Cannonball(0)

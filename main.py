@@ -103,5 +103,8 @@ if __name__ == '__main__':
     elif choice == 3:
         crazy = Crazyball(0)
         crazy.shoot(angle, v, 9.81)
+    elif choice == 4:
+        print("Goodbye!")
+        quit()
     else:
         print("Invalid input, enter a number from 1 to 4.")

@@ -88,10 +88,20 @@ if __name__ == '__main__':
     #
     #from cannonball import Cannonball
 
+    ## Prompt user for input
     angle = float(input("Enter starting angle:"))
     v = float(input("Enter initial velocity:"))
-    c = Cannonball(0)
-    c.shoot(angle, v, 9.81)
 
-
-
+    ## Prompt user for which trajectory
+    choice = int(input("Enter a number from 1 to 4: "))
+    if choice == 1:
+        c = Cannonball(0)
+        c.shoot(angle, v, 9.81)
+    elif choice == 2:
+        d = Cannonball(0)
+        d.shoot(angle, v, 1.625)
+    elif choice == 3:
+        crazy = Crazyball(0)
+        crazy.shoot(angle, v, 9.81)
+    else:
+        print("Invalid input, enter a number from 1 to 4.")

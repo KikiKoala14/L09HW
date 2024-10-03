@@ -2,6 +2,14 @@ import random
 from math import sin, cos
 from matplotlib import pyplot as plt
 
+## Print_Iface class to track location of cannonball
+#
+class Print_Iface:
+    def plot(self, inx, iny):
+        print("The ball is at (%.1f, %.1f)" % (inx, iny))
+        plt.scatter(inx, iny)
+        plt.pause(.01)
+
 ## Represent a cannonball, tracking its position and velocity.
 #
 class Cannonball:
@@ -48,11 +56,10 @@ class Cannonball:
         self.move(0.1, user_grav)
 
         while self.getY() > 1e-14:
-            print("The ball is at (%.1f, %.1f)" % (self.getX(), self.getY()))
-
-            plt.scatter(self.getX(), self.getY())
-            plt.pause(.01)
+            pri = Print_Iface()
+            pri.plot(self.getX(), self.getY())
             self.move(0.1, user_grav)
+
 
 ## Represent a Crazyball, a type of Cannonball
 #
@@ -72,8 +79,6 @@ class Crazyball(Cannonball):
 
         # Some random conditions
         if self.getX() < 400:
-            self.rand_q = random.randrange(0, 10)
-        if self.getX() < 600:
             self.rand_q = random.randrange(0, 10)
 
     # Press the green button in the gutter to run the script.
